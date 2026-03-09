@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1> Funcionários </h1>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-error px-3">
+    <!-- Passo 4: Percorrer a lista de mensagens -->
+    {% for category, message in messages %}
+    <!-- Passo 5: Cirar um card filho  -->
+    <div class="alert {{ category }} alert-dismissible fade show px-5" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Cadastrar Funcionário
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form class="funcionarios" action="{{ url_for('cadastro_funcionario') }}" method="post">
+
+                    <label>
+                        Nome:
+                        <input placeholder="Digite um nome" name="form-nome" class="form-control">
+                    </label>
+                    <label>
+                        Data Nascimento:
+                        <input type="date" placeholder="Digite uma data de nasc" name="form-data_nascimento" class="form-control">
+                    </label>
+                    <label>
+                        CPF:
+                        <input placeholder="Digite um CPF" name="form-cpf" class="form-control">
+                    </label>
+                    <label>
+                        Email:
+                        <input type="email" placeholder="Digite um email" name="form-email" class="form-control">
+                    </label>
+                    <label>
+                        Senha:
+                        <input placeholder="Digite um senha" name="form-senha" class="form-control">
+                    </label>
+                    <label>
+                        Cargo:
+                        <input placeholder="Digite um cargo" name="form-cargo" class="form-control">
+                    </label>
+                    <label>
+                        Salário:
+                        <input placeholder="Digite um salário" name="form-salario" class="form-control">
+                    </label>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data Nascimento</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Salário</th>
+        <th scope="col">Ações</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for funcionario in resultado %}
+
+        <tr>
+            <th>{{ funcionario.id }}</th>
+            <td>{{ funcionario.nome }}</td>
+            <td>{{ funcionario.data_nascimento }}</td>
+            <td>{{ funcionario.cpf }}</td>
+            <td>{{ funcionario.email }}</td>
+            <td>{{ funcionario.cargo }}</td>
+            <td>{{ funcionario.salario }}</td>
+            <td><a href="">Editar<i class="bi bi-pencil"></i></a><a href="">Excluir<i
+                    class="bi bi-trash text-danger"></i></a></td>
+
+        </tr>
+
+    {% endfor %}
+</table>
+
+{% endblock %}

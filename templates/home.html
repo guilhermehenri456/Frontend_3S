@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div class="carrosel d-flex overflow-hidden">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active bg-dark" data-bs-interval="2000">
+                <img src="/static/img/carousel-1.jpg" class="d-block w-100 opacity-50" alt="...">
+            </div>
+            <div class="carousel-item bg-dark" data-bs-interval="2000">
+                <img src="/static/img/carousel-2.jpg" class="d-block w-100 opacity-50" alt="...">
+            </div>
+            <div class="carousel-item bg-dark" data-bs-interval="2000">
+                <img src="/static/img/carousel-3.jpg" class="d-block w-100 opacity-50" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="w-100 h-100 position-absolute d-flex flex-column justify-content-evenly">
+        <p class="title-senai text-white display-1 text-center">Capacitação profissional na indústria</p>
+        <p class="subtitle-senai text-white display-6 text-center">Confira os nossos cursos Profissionalizantes</p>
+    </div>
+</div>
+<div class="cursos1">
+    <div class="curso-text col-8">
+        <h1>Gastronomia</h1>
+        <p>O curso de Gastronomia é uma formação que combina técnica, criatividade, conhecimento cultural e gestão. Os
+            alunos aprendem a preparar pratos, lidar com ingredientes, e desenvolver habilidades de gestão de cozinha. O
+            curso inclui disciplinas como nutrição, segurança alimentar, cultura gastronômica, e aulas em
+            cozinhas-laboratório. Os graduados podem atuar como chefs de cozinha, confeiteiros, sommeliers, e
+            empreendedores no setor alimentício. O curso tem duração média de dois anos e oferece uma formação intensa e
+            prática, preparando os alunos para enfrentar os desafios do mercado de trabalho.</p>
+    </div>
+
+    <div class="curso-img bg-dark col-4">
+        <img src="../static/img/carousel-4.jpg" class="w-100 h-100"/>
+    </div>
+</div>
+<div class="cursos1">
+    <div class="curso-img bg-dark col-4">
+        <img src="../static/img/carousel-5.jpg" class="w-100 h-100"/>
+    </div>
+    <div class="curso-text col-8">
+        <h1>Policial</h1>
+        <p>O curso de formação da Polícia Militar é uma etapa fundamental para a preparação dos futuros policiais. Ele
+            inclui ensinamentos teóricos sobre legislação e ética, práticas em situações simuladas, e avaliações
+            contínuas. Os cadetes são preparados para enfrentar os desafios da atuação no campo da segurança pública,
+            desenvolvendo habilidades críticas e competências específicas. O curso visa fornecer uma base sólida de
+            conhecimentos teóricos e práticos, essenciais para a atuação nas ruas</p>
+    </div>
+
+
+</div>
+
+{% endblock %}

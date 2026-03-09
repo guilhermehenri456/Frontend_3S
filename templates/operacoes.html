@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Operações Aritméticas</h1>
+<!--  Passo 2: Verifica se possui mensagens enviadas pelo app -->
+<!-- Passo 3: Definir with_categories=true caso queira ter acesso as categorias -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-error px-3">
+    <!-- Passo 4: Percorrer a lista de mensagens -->
+    {% for category, message in messages %}
+    <!-- Passo 5: Criar um card filho -->
+    <div class="alert {{ category }} alert-dismissible fade show px-5" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="calculos">
+
+    <div class="card_operacao">
+        <h2>Adição</h2>
+        <form class="form-somar" action="{{ url_for('somar') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">+</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if soma is defined %}
+                {{ n1 }} + {{ n2 }} = {{ soma }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-success">Somar</button>
+        </form>
+        <div class="accordion" id="accordion1">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                        <i class="bi bi-info-circle">Como calcular</i>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion1">
+                    <div class="accordion-body">
+                       <h4>Adição</h4>
+                        <p>Para somar é preciso de 2 ou mais números</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card_operacao">
+        <h2>Subtração</h2>
+        <form class="form-subtrair" action="{{ url_for('subtrair') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">-</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if subtrair is defined %}
+                {{ n1 }} - {{ n2 }} = {{ subtrair }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-success">Subtrair</button>
+        </form>
+
+    </div>
+
+    <div class="card_operacao">
+
+        <h2>Divisão</h2>
+        <form class="form-divisao" action="{{ url_for('divisao') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">/</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if divisao is defined %}
+                {{ n1 }} / {{ n2 }} = {{ divisao }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-success">Dividir</button>
+        </form>
+
+    </div>
+
+    <div class="card_operacao">
+
+        <h2>Multiplicação</h2>
+        <form class="form-multiplicar" action="{{ url_for('multiplicar') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">*</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if multiplicar is defined %}
+                {{ n1 }} * {{ n2 }} = {{ multiplicar }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-success">Multiplicar</button>
+        </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
