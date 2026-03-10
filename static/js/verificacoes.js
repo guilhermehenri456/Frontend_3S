@@ -14,16 +14,6 @@
 //     }
 // }
 
-
-function limpaInputsCadastro() {
-    const inputEmail = document.getElementById('input-email')
-    const inputSenha = document.getElementById('input-senha')
-
-    inputEmail.value = ''
-    inputSenha.value = ''
-}
-
-
 function limpaInputsLogin() {
     const inputEmail = document.getElementById('input-email')
     const inputSenha = document.getElementById('input-senha')
