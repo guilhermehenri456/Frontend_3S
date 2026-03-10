@@ -247,6 +247,9 @@ def a_hexagono():
             a_hexagono = ((n1 * n1) * (3 * 1.732)) / 2
             return render_template("geometria.html", n1=n1, a_hexagono=a_hexagono)
 
+@app.route('/animais')
+def animais():
+    return render_template('animais.html')
 
 # TODO Final do código
 

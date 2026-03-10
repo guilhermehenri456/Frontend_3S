@@ -8,77 +8,76 @@
 
     <div class="login">
 
-        <form action="{{ url_for('login') }}" method="post">
+        <form id="form-login" action="{{ url_for('login') }}" method="post">
 
             <label>
                 Email:
-                <input  name="form-email">
+                <input id="input-email" placeholder="Digite seu email" name="form-email" class="form-control w-100">
             </label>
 
             <label>
                 Senha:
-                <input type="password" name="form-senha">
+                <input id="input-senha" placeholder="Digite sua senha" type="password" name="form-senha" class="form-control w-100">
             </label>
 
-
             <button type="submit" class="btn btn-success ">Logar</button>
+            <button class="btn btn-danger my-2" onclick="limpaInputsLogin()">Cancelar</button>
         </form>
         <a href="" data-bs-toggle="modal" data-bs-target="#modal-cadastrase">Não possui conta? Cadastra-se aqui!</a>
 
     </div>
     <div class="modal fade" id="modal-cadastrase" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-                <form class="funcionarios" action="{{ url_for('cadastro_funcionario') }}" method="post">
+                    <form class="funcionarios" action="{{ url_for('cadastro_funcionario') }}" method="post">
 
-                    <label>
-                        Nome:
-                        <input placeholder="Digite um nome" name="form-nome" class="form-control">
-                    </label>
-                    <label>
-                        Data Nascimento:
-                        <input placeholder="Digite uma data de nasc" name="form-data_nascimento" class="form-control" type="date">
-                    </label>
-                    <label>
-                        CPF:
-                        <input placeholder="Digite um CPF" name="form-cpf" class="form-control">
-                    </label>
-                    <label>
-                        Email:
-                        <input placeholder="Digite um email" name="form-email" class="form-control">
-                    </label>
-                    <label>
-                        Senha:
-                        <input placeholder="Digite um senha" name="form-senha" class="form-control">
-                    </label>
-                    <label>
-                        Cargo:
-                        <input placeholder="Digite um cargo" name="form-cargo" class="form-control">
-                    </label>
-                    <label>
-                        Salário:
-                        <input placeholder="Digite um salário" name="form-salario" class="form-control">
-                    </label>
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        <label>
+                            Nome:
+                            <input placeholder="Digite um nome" name="form-nome" class="form-control">
+                        </label>
+                        <label>
+                            Data Nascimento:
+                            <input placeholder="Digite uma data de nasc" name="form-data_nascimento"
+                                   class="form-control" type="date">
+                        </label>
+                        <label>
+                            CPF:
+                            <input placeholder="Digite um CPF" name="form-cpf" class="form-control">
+                        </label>
+                        <label>
+                            Email:
+                            <input placeholder="Digite um email" name="form-email2" class="form-control">
+                        </label>
+                        <label>
+                            Senha:
+                            <input placeholder="Digite um senha" name="form-senha" class="form-control">
+                        </label>
+                        <label>
+                            Cargo:
+                            <input placeholder="Digite um cargo" name="form-cargo" class="form-control">
+                        </label>
+                        <label>
+                            Salário:
+                            <input placeholder="Digite um salário" name="form-salario" class="form-control">
+                        </label>
+                        <button type="submit" class="btn btn-success">Cadastrar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
-
-
 
 
 {% endblock %}
