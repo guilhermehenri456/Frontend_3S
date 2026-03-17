@@ -5,6 +5,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required
 from sqlalchemy import select
 from sqlalchemy.exc import SQLAlchemyError
 
+from api_routes import routes
 from database import db_session, Funcionario
 
 app = Flask(__name__)
@@ -247,9 +248,24 @@ def a_hexagono():
             a_hexagono = ((n1 * n1) * (3 * 1.732)) / 2
             return render_template("geometria.html", n1=n1, a_hexagono=a_hexagono)
 
+
 @app.route('/animais')
 def animais():
     return render_template('animais.html')
+
+
+@app.route('/gatos')
+def listar_gatos():
+    gatos = routes.get_gatos()
+
+
+    for gato in gatos:
+        gato["temperament"] = gato["temperament"].split(',')
+        gato["image"] = routes.get_images()["url"]
+
+    print(gatos)
+
+    return render_template('gatos.html', gatos=gatos)
 
 # TODO Final do código
 

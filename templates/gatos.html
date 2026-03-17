@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+{% if gatos %}
+
+{% for gato in gatos %}
+<!-- Results List -->
+<div class="row g-4">
+    <!-- Result Item 1 -->
+    <div class="col-12">
+        <div class="card cat-card p-4">
+            <div class="row align-items-center align-items-md-start g-4">
+                <div class="col-auto">
+                    <div class="cat-img-container">
+                        <img alt="Abyssinian cat" class="cat-img"
+                             src="{{ gato.image }}"/>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="fw-bold mb-2">{{ gato.name }}</h3>
+                        <span class="material-symbols-outlined text-secondary opacity-50 cursor-pointer">Name: {{ gatos.name }}</span>
+                    </div>
+                    <p class="text-secondary mb-4"
+                       style="color: var(--on-surface-variant) !important; max-width: 800px;">
+                        Description: {{ gato.description }}
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for temperamento in gato.temperament %}
+                        <span class="tag-badge"> {{ temperamento }}</span>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="col-md-auto d-flex flex-column align-items-md-end justify-content-between h-100">
+                    <div class="stat-bar stat-bar-filled"></div>
+                    <div class="stat-bar stat-bar-filled"></div>
+                    <div class="stat-bar stat-bar-filled"></div>
+                    <div class="stat-bar stat-bar-filled"></div>
+                    <div class="stat-bar stat-bar-filled"></div>
+                </div>
+            </div>
+            <button class="btn btn-profile">View Profile</button>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% else %}
+<h3>Nenhum gato disponivel!</h3>
+{% endif %}
+{% endblock %}
