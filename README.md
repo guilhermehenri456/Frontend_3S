@@ -20,3 +20,7 @@
 ## funcionario
 <img width="1904" height="899" alt="image" src="https://github.com/user-attachments/assets/83147882-e1e0-473b-8335-3b5c0278b98f" />
 
+## animais
+<img width="1898" height="933" alt="image" src="https://github.com/user-attachments/assets/61357fda-bbf8-4507-ac3f-b2d3f3c0c208" />
+
+
